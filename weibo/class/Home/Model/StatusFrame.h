@@ -19,13 +19,22 @@
 @interface StatusFrame : NSObject
 
 @property (nonatomic, assign)CGRect originF;
+@property (nonatomic, assign)CGRect forwardF;
+@property (nonatomic, assign)CGRect toolF;
+
 @property (nonatomic, assign)CGRect iconF;
 @property (nonatomic, assign)CGRect nameF;
 @property (nonatomic, assign)CGRect vipF;
 @property (nonatomic, assign)CGRect timeF;
 @property (nonatomic, assign)CGRect sourceF;
 @property (nonatomic, assign)CGRect contentF;
+@property (nonatomic, assign)CGRect pictureF;
+
+@property (nonatomic, assign)CGRect forwardContentF;
+@property (nonatomic, assign)CGRect forwardPictureF;
+
 @property (nonatomic, assign)CGFloat cellHeight;
+
 
 @property (nonatomic)Status *status;
 

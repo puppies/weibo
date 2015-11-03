@@ -11,6 +11,7 @@
 #import "StatusFrame.h"
 #import "Status.h"
 #import "User.h"
+#import "Picture.h"
 
 @implementation StatusTableViewCell
 
@@ -52,6 +53,33 @@
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
     
+    UIImageView *pictureView = [[UIImageView alloc] init];
+    [self.contentView addSubview:pictureView];
+    self.pictureView = pictureView;
+    
+    /** 转发 */
+    UIImageView *forwardView = [[UIImageView alloc] init];
+    forwardView.image = [UIImage imageNamed:@"timeline_retweet_background"];
+    forwardView.highlightedImage = [UIImage imageNamed:@"timeline_retweet_background_highlighted"];
+
+    [self.contentView addSubview:forwardView];
+    self.forwardView = forwardView;
+    
+    UILabel *forwardContentLabel = [[UILabel alloc] init];
+    forwardContentLabel.font = ContentFont;
+    forwardContentLabel.numberOfLines = 0;
+    [forwardView addSubview:forwardContentLabel];
+    self.forwardContentLabel = forwardContentLabel;
+    
+    UIImageView *forwardPictureView = [[UIImageView alloc] init];
+    [forwardView addSubview:forwardPictureView];
+    self.forwardPictureView = forwardPictureView;
+    
+    /** 工具条 */
+    UIView *toolView = [[UIView alloc] init];
+    [self.contentView addSubview:toolView];
+    self.toolView = toolView;
+    
     return self;
 }
 
@@ -61,6 +89,8 @@
     
     Status *status = self.statusFrame.status;
     User *user = status.user;
+    
+    Status *forwardStatus = status.retweeted_status;
     
     self.originalView.frame = statusFrame.originF;
     
@@ -92,6 +122,36 @@
     
     self.contentLabel.frame = statusFrame.contentF;
     self.contentLabel.text = status.text;
+    
+    if (status.pic_urls.count) {
+        self.pictureView.hidden = NO;
+        self.pictureView.frame = statusFrame.pictureF;
+        Picture *pic = [status.pic_urls firstObject];
+        [self.pictureView sd_setImageWithURL:[NSURL URLWithString:pic.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    } else {
+        self.pictureView.hidden = YES;
+    }
+    
+    if (forwardStatus) {
+        /** 转发 */
+        self.forwardView.hidden = NO;
+        self.forwardView.frame = statusFrame.forwardF;
+        
+        self.forwardContentLabel.frame = statusFrame.forwardContentF;
+        self.forwardContentLabel.text = forwardStatus.text;
+        
+        if (forwardStatus.pic_urls.count) {
+            self.forwardPictureView.hidden = NO;
+            self.forwardPictureView.frame = statusFrame.forwardPictureF;
+            Picture *pic = [forwardStatus.pic_urls firstObject];
+            [self.forwardPictureView sd_setImageWithURL:[NSURL URLWithString:pic.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        } else {
+            self.forwardPictureView.hidden = YES;
+        }
+    } else {
+        self.forwardView.hidden = YES;
+    }
+
 
 }
 

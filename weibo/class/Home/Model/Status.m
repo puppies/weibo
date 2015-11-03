@@ -28,4 +28,14 @@
 //    return status;
 //}
 
++ (NSString *)protocolForArrayProperty:(NSString *)propertyName {
+    
+    return [propertyName isEqualToString:@"pic_urls"]? @"Picture" : nil;
+}
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName {
+    return [propertyName isEqualToString:@"retweeted_status"]? YES : NO;
+}
+
+
 @end

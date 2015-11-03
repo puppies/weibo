@@ -12,6 +12,7 @@
 		3D6D582A1BE0CED600D5E7B5 /* weiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6D58291BE0CED600D5E7B5 /* weiboTests.m */; };
 		3D6D58351BE0CED600D5E7B5 /* weiboUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6D58341BE0CED600D5E7B5 /* weiboUITests.m */; };
 		3D6D58451BE0CF7200D5E7B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6D58441BE0CF7200D5E7B5 /* AppDelegate.m */; };
+		3D7125751BE868FC00B3EFFC /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7125741BE868FC00B3EFFC /* Picture.m */; };
 		3D722FF71BE3657A00D036BA /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D722FF61BE3657A00D036BA /* OAuthViewController.m */; };
 		3D72300C1BE3733700D036BA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D722FFA1BE3733700D036BA /* AFHTTPRequestOperation.m */; };
 		3D72300D1BE3733700D036BA /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D722FFC1BE3733700D036BA /* AFHTTPRequestOperationManager.m */; };
@@ -100,6 +101,8 @@
 		3D6D58361BE0CED600D5E7B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D6D58431BE0CF7200D5E7B5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D6D58441BE0CF7200D5E7B5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3D7125731BE868FC00B3EFFC /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
+		3D7125741BE868FC00B3EFFC /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
 		3D722FF51BE3657A00D036BA /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		3D722FF61BE3657A00D036BA /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		3D722FF91BE3733700D036BA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -468,6 +471,8 @@
 				3DFB83921BE4C16D00A1D6FD /* Status.m */,
 				3DABDB8A1BE713E200EF7DA4 /* StatusFrame.h */,
 				3DABDB8B1BE713E200EF7DA4 /* StatusFrame.m */,
+				3D7125731BE868FC00B3EFFC /* Picture.h */,
+				3D7125741BE868FC00B3EFFC /* Picture.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -805,6 +810,7 @@
 				3D72304C1BE3E2C900D036BA /* SDWebImageDownloaderOperation.m in Sources */,
 				3D7230521BE3E2C900D036BA /* UIImage+WebP.m in Sources */,
 				3D72304E1BE3E2C900D036BA /* SDWebImagePrefetcher.m in Sources */,
+				3D7125751BE868FC00B3EFFC /* Picture.m in Sources */,
 				3DBC18311BE1C9B1003934B8 /* HomeTableViewController.m in Sources */,
 				3D7230481BE3E2C900D036BA /* SDImageCache.m in Sources */,
 				3D72304D1BE3E2C900D036BA /* SDWebImageManager.m in Sources */,

@@ -20,7 +20,9 @@
 //@property (nonatomic, copy) NSString *original_pic;
 @property (nonatomic, copy) NSString *reposts_count;
 @property (nonatomic, copy) NSString *comments_count;
-//@property (nonatomic)NSArray *pic_ids;
+@property (nonatomic)NSArray *pic_urls;
+
+@property (nonatomic)Status *retweeted_status;
 
 @property (nonatomic)User *user;
 

@@ -12,6 +12,7 @@
 @interface StatusTableViewCell : UITableViewCell
 
 @property (nonatomic)UIView *originalView;
+
 @property (nonatomic)UIImageView *iconView;
 @property (nonatomic)UIImageView *vipView;
 
@@ -19,6 +20,15 @@
 @property (nonatomic)UILabel *timeLabel;
 @property (nonatomic)UILabel *sourceLabel;
 @property (nonatomic)UILabel *contentLabel;
+@property (nonatomic)UIImageView *pictureView;
+
+@property (nonatomic)UIImageView *forwardView;
+@property (nonatomic)UILabel *forwardContentLabel;
+@property (nonatomic)UIImageView *forwardPictureView;
+
+
+@property (nonatomic)UIView *toolView;
+
 
 @property (nonatomic)StatusFrame *statusFrame;
 
