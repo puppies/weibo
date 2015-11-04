@@ -68,14 +68,19 @@
     }
     
     CGFloat originW = cellWidth;
-    self.originF = (CGRect){CGPointZero, {originW, originH}};
+    CGFloat originX = 0;
+    CGFloat originY = CellPadding;
+    self.originF = CGRectMake(originX, originY, originW, originH);
     
+    CGFloat toolY = 0;
     if (forwardStatus) {
         /** 转发部分*/
         CGFloat forwardContentX = iconX;
         CGFloat forwardContentY = Padding;
         //    CGFloat maxW = cellWidth - 2 * Padding;
-        CGSize forwardContentSize = [NSString sizeWithText:forwardStatus.text font:ContentFont maxWidth:maxW];
+        
+        NSString *forwardContent = [NSString stringWithFormat:@"@%@ : %@", forwardStatus.user.name, forwardStatus.text];
+        CGSize forwardContentSize = [NSString sizeWithText:forwardContent font:ContentFont maxWidth:maxW];
         self.forwardContentF = (CGRect){{forwardContentX, forwardContentY}, forwardContentSize};
         
         CGFloat forwardH = 0;
@@ -95,13 +100,39 @@
         CGFloat forwardY = CGRectGetMaxY(self.originF);
         self.forwardF = CGRectMake(forwardX, forwardY, forwardW, forwardH);
         
-        
-        self.cellHeight = CGRectGetMaxY(self.forwardF);
-    } else {
-        self.cellHeight = CGRectGetMaxY(self.originF);
-    }
 
+        toolY = CGRectGetMaxY(self.forwardF);
+        
+    } else {
+        toolY = CGRectGetMaxY(self.originF);
+    }
     
+    /** 工具条 */
+    
+    CGFloat toolW = originW;
+    CGFloat toolH = 35;
+    CGFloat toolX = self.originF.origin.x;
+    self.toolF = CGRectMake(toolX, toolY, toolW, toolH);
+    
+    CGFloat commentBtnW = toolW / 3;
+    CGFloat commentBtnH = toolH;
+    CGFloat commentBtnX = 0;
+    CGFloat commentBtnY = 0;
+    self.commentBtnF = CGRectMake(commentBtnX, commentBtnY, commentBtnW, commentBtnH);
+    
+    CGFloat forwardBtnW = commentBtnW;
+    CGFloat forwardBtnH = toolH;
+    CGFloat forwardBtnX = commentBtnW;
+    CGFloat forwardBtnY = 0;
+    self.forwardBtnF = CGRectMake(forwardBtnX, forwardBtnY, forwardBtnW, forwardBtnH);
+    
+    CGFloat likeBtnW = commentBtnW;
+    CGFloat likeBtnH = toolH;
+    CGFloat likeBtnX = commentBtnW * 2;
+    CGFloat likeBtnY = 0;
+    self.likeBtnF = CGRectMake(likeBtnX, likeBtnY, likeBtnW, likeBtnH);
+    
+    self.cellHeight = CGRectGetMaxY(self.toolF);
     
 }
 

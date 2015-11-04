@@ -12,14 +12,30 @@
 #import "Status.h"
 #import "User.h"
 #import "Picture.h"
+#import "StatusToolBar.h"
 
 @implementation StatusTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
+    self.backgroundColor = [UIColor clearColor];
+    
+    [self setupOriginView];
+    
+    [self setupForwardView];
+    
+    [self setupToolBarView];
+    
+ 
+    
+    return self;
+}
+
+- (void)setupOriginView {
+    
     UIView *originalView = [[UIView alloc] init];
-//    originalView.backgroundColor = [UIColor redColor];
+    originalView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
@@ -54,14 +70,17 @@
     self.contentLabel = contentLabel;
     
     UIImageView *pictureView = [[UIImageView alloc] init];
-    [self.contentView addSubview:pictureView];
+    [originalView addSubview:pictureView];
     self.pictureView = pictureView;
-    
+
+}
+
+- (void)setupForwardView {
     /** 转发 */
     UIImageView *forwardView = [[UIImageView alloc] init];
     forwardView.image = [UIImage imageNamed:@"timeline_retweet_background"];
     forwardView.highlightedImage = [UIImage imageNamed:@"timeline_retweet_background_highlighted"];
-
+    
     [self.contentView addSubview:forwardView];
     self.forwardView = forwardView;
     
@@ -74,13 +93,15 @@
     UIImageView *forwardPictureView = [[UIImageView alloc] init];
     [forwardView addSubview:forwardPictureView];
     self.forwardPictureView = forwardPictureView;
-    
+
+}
+
+- (void)setupToolBarView {
     /** 工具条 */
-    UIView *toolView = [[UIView alloc] init];
-    [self.contentView addSubview:toolView];
-    self.toolView = toolView;
-    
-    return self;
+    StatusToolBar *toolBarView = [[StatusToolBar alloc] init];
+
+    [self.contentView addSubview:toolBarView];
+    self.toolBarView = toolBarView;
 }
 
 - (void)setStatusFrame:(StatusFrame *)statusFrame {
@@ -138,7 +159,8 @@
         self.forwardView.frame = statusFrame.forwardF;
         
         self.forwardContentLabel.frame = statusFrame.forwardContentF;
-        self.forwardContentLabel.text = forwardStatus.text;
+        NSString *forwardContent = [NSString stringWithFormat:@"@%@ : %@", forwardStatus.user.name, forwardStatus.text];
+        self.forwardContentLabel.text = forwardContent;
         
         if (forwardStatus.pic_urls.count) {
             self.forwardPictureView.hidden = NO;
@@ -151,7 +173,9 @@
     } else {
         self.forwardView.hidden = YES;
     }
-
+    
+    self.toolBarView.frame = statusFrame.toolF;
+    self.toolBarView.status = status;
 
 }
 

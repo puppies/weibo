@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class StatusFrame;
+@class StatusToolBar;
 
 @interface StatusTableViewCell : UITableViewCell
 
@@ -27,8 +28,7 @@
 @property (nonatomic)UIImageView *forwardPictureView;
 
 
-@property (nonatomic)UIView *toolView;
-
+@property (nonatomic)StatusToolBar *toolBarView;
 
 @property (nonatomic)StatusFrame *statusFrame;
 

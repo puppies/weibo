@@ -38,6 +38,10 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[StatusTableViewCell class] forCellReuseIdentifier:@"statusCell"];
+    
+    self.tableView.backgroundColor = [UIColor colorWithRed:211 / 255.0 green:211 / 255.0 blue:211 / 255.0 alpha:1];
+    
+//    self.tableView.contentInset = UIEdgeInsetsMake(CellPadding, 0, 0, 0);
    
     [self setNavigationBar];
     [self setupNewRefresh];

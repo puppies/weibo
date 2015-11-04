@@ -47,6 +47,7 @@
 		3DABDB8C1BE713E200EF7DA4 /* StatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DABDB8B1BE713E200EF7DA4 /* StatusFrame.m */; };
 		3DABDB8F1BE7176100EF7DA4 /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DABDB8E1BE7176100EF7DA4 /* NSString+extension.m */; };
 		3DAEBAF31BE4604600EC1937 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEBAF21BE4604600EC1937 /* TitleButton.m */; };
+		3DB46EDD1BEA41860021BF7B /* StatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB46EDC1BEA41860021BF7B /* StatusToolBar.m */; };
 		3DBC18301BE1C9B1003934B8 /* DiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC18111BE1C9B1003934B8 /* DiscoverTableViewController.m */; };
 		3DBC18311BE1C9B1003934B8 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC18171BE1C9B1003934B8 /* HomeTableViewController.m */; };
 		3DBC18321BE1C9B1003934B8 /* UIView+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC181E1BE1C9B1003934B8 /* UIView+extension.m */; };
@@ -173,6 +174,8 @@
 		3DABDB8E1BE7176100EF7DA4 /* NSString+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+extension.m"; sourceTree = "<group>"; };
 		3DAEBAF11BE4604600EC1937 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
 		3DAEBAF21BE4604600EC1937 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
+		3DB46EDB1BEA41860021BF7B /* StatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusToolBar.h; sourceTree = "<group>"; };
+		3DB46EDC1BEA41860021BF7B /* StatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusToolBar.m; sourceTree = "<group>"; };
 		3DBC18101BE1C9B1003934B8 /* DiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverTableViewController.h; sourceTree = "<group>"; };
 		3DBC18111BE1C9B1003934B8 /* DiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverTableViewController.m; sourceTree = "<group>"; };
 		3DBC18161BE1C9B1003934B8 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
@@ -482,6 +485,8 @@
 			children = (
 				3DABDB871BE70F8300EF7DA4 /* StatusTableViewCell.h */,
 				3DABDB881BE70F8300EF7DA4 /* StatusTableViewCell.m */,
+				3DB46EDB1BEA41860021BF7B /* StatusToolBar.h */,
+				3DB46EDC1BEA41860021BF7B /* StatusToolBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -820,6 +825,7 @@
 				3DFB83B11BE5240A00A1D6FD /* JSONModelError.m in Sources */,
 				3DBC18331BE1C9B1003934B8 /* MainTabBarController.m in Sources */,
 				3D7230111BE3733700D036BA /* AFURLConnectionOperation.m in Sources */,
+				3DB46EDD1BEA41860021BF7B /* StatusToolBar.m in Sources */,
 				3DFB83B61BE5240A00A1D6FD /* JSONKeyMapper.m in Sources */,
 				3D7230551BE3E2C900D036BA /* UIView+WebCacheOperation.m in Sources */,
 				3D722FF71BE3657A00D036BA /* OAuthViewController.m in Sources */,
