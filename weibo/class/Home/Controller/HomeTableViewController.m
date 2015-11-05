@@ -320,6 +320,8 @@
         //            Status *status = [Status statusWithDictionary:dic];
         //            [self.statuses addObject:status];
         //        }
+        NSLog(@"%@", responseObject);
+
         NSArray *moreStatuses = [Status arrayOfModelsFromDictionaries:responseObject[@"statuses"]];
         
         NSArray *moreFrames = [StatusFrame framesWithStatuses:moreStatuses];

@@ -11,6 +11,6 @@
 
 @interface NSString (extension)
 
-+ (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font maxWidth:(float)MaxW;
-+ (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font;
+- (CGSize)sizeWithFont:(UIFont *)font maxWidth:(float)MaxW;
+- (CGSize)sizeWithFont:(UIFont *)font;
 @end

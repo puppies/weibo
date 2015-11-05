@@ -13,6 +13,7 @@
 #import "User.h"
 #import "Picture.h"
 #import "StatusToolBar.h"
+#import "NSString+extension.h"
 
 @implementation StatusTableViewCell
 
@@ -55,6 +56,7 @@
     
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = TimeFont;
+    timeLabel.textColor = [UIColor orangeColor];
     [originalView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     
@@ -135,7 +137,10 @@
         self.nameLabel.textColor = [UIColor blackColor];
     }
     
-    self.timeLabel.frame = statusFrame.timeF;
+    CGFloat timeX = self.nameLabel.frame.origin.x;
+    CGFloat timeY = CGRectGetMaxY(self.nameLabel.frame) + Padding;
+    CGSize timeSize = [status.created_at sizeWithFont:TimeFont];
+    self.timeLabel.frame = (CGRect){{timeX, timeY}, timeSize};
     self.timeLabel.text = status.created_at;
     
     self.sourceLabel.frame = statusFrame.sourceF;

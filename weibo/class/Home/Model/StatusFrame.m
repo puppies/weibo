@@ -28,7 +28,7 @@
     
     CGFloat nameX = CGRectGetMaxX(self.iconF) + Padding;
     CGFloat nameY = iconY;
-    CGSize nameSize = [NSString sizeWithText:status.user.name font:NameFont];
+    CGSize nameSize = [user.name sizeWithFont:NameFont];
     self.nameF = (CGRect){{nameX, nameY}, nameSize};
     
     if (user.isVip) {
@@ -41,18 +41,18 @@
     
     CGFloat timeX = nameX;
     CGFloat timeY = CGRectGetMaxY(self.nameF) + Padding;
-    CGSize timeSize = [NSString sizeWithText:status.created_at font:TimeFont];
+    CGSize timeSize = [status.created_at sizeWithFont:TimeFont];
     self.timeF = (CGRect){{timeX, timeY}, timeSize};
     
     CGFloat sourceX = CGRectGetMaxX(self.timeF) + Padding;
     CGFloat sourceY = timeY;
-    CGSize sourceSize = [NSString sizeWithText:status.source font:SourceFont];
+    CGSize sourceSize = [status.source sizeWithFont:SourceFont];
     self.sourceF = (CGRect){{sourceX, sourceY}, sourceSize};
     
     CGFloat contentX = iconX;
     CGFloat contentY = MAX(CGRectGetMaxY(self.nameF), CGRectGetMaxY(self.iconF)) + Padding;
     CGFloat maxW = cellWidth - 2 * Padding;
-    CGSize contentSize = [NSString sizeWithText:status.text font:ContentFont maxWidth:maxW];
+    CGSize contentSize = [status.text sizeWithFont:ContentFont maxWidth:maxW];
     self.contentF = (CGRect){{contentX, contentY}, contentSize};
     
     CGFloat originH = 0;
@@ -80,7 +80,7 @@
         //    CGFloat maxW = cellWidth - 2 * Padding;
         
         NSString *forwardContent = [NSString stringWithFormat:@"@%@ : %@", forwardStatus.user.name, forwardStatus.text];
-        CGSize forwardContentSize = [NSString sizeWithText:forwardContent font:ContentFont maxWidth:maxW];
+        CGSize forwardContentSize = [forwardContent sizeWithFont:ContentFont maxWidth:maxW];
         self.forwardContentF = (CGRect){{forwardContentX, forwardContentY}, forwardContentSize};
         
         CGFloat forwardH = 0;

@@ -58,6 +58,7 @@
 		3DBC18391BE1CBB8003934B8 /* UIBarButtonItem+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC18381BE1CBB8003934B8 /* UIBarButtonItem+extension.m */; };
 		3DBC183D1BE2285B003934B8 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC183C1BE2285B003934B8 /* WBTabBar.m */; };
 		3DBC18401BE26FFE003934B8 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC183F1BE26FFE003934B8 /* NewFeatureViewController.m */; };
+		3DE90D451BEB824F0098FDB2 /* NSDate+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE90D441BEB824F0098FDB2 /* NSDate+extension.m */; };
 		3DFB83901BE4C16000A1D6FD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB838F1BE4C16000A1D6FD /* User.m */; };
 		3DFB83931BE4C16D00A1D6FD /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB83921BE4C16D00A1D6FD /* Status.m */; };
 		3DFB83AE1BE5240A00A1D6FD /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB83971BE5240A00A1D6FD /* JSONModel.m */; };
@@ -196,6 +197,8 @@
 		3DBC183C1BE2285B003934B8 /* WBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBar.m; sourceTree = "<group>"; };
 		3DBC183E1BE26FFE003934B8 /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
 		3DBC183F1BE26FFE003934B8 /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
+		3DE90D431BEB824F0098FDB2 /* NSDate+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+extension.h"; sourceTree = "<group>"; };
+		3DE90D441BEB824F0098FDB2 /* NSDate+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+extension.m"; sourceTree = "<group>"; };
 		3DFB838E1BE4C16000A1D6FD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		3DFB838F1BE4C16000A1D6FD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		3DFB83911BE4C16D00A1D6FD /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Status.h; sourceTree = "<group>"; };
@@ -525,6 +528,8 @@
 				3D7230221BE3C2FB00D036BA /* UIWindow+extension.m */,
 				3DABDB8D1BE7176100EF7DA4 /* NSString+extension.h */,
 				3DABDB8E1BE7176100EF7DA4 /* NSString+extension.m */,
+				3DE90D431BEB824F0098FDB2 /* NSDate+extension.h */,
+				3DE90D441BEB824F0098FDB2 /* NSDate+extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -831,6 +836,7 @@
 				3D722FF71BE3657A00D036BA /* OAuthViewController.m in Sources */,
 				3D7230491BE3E2C900D036BA /* SDWebImageCompat.m in Sources */,
 				3DBC18361BE1C9B1003934B8 /* ProfileTableViewController.m in Sources */,
+				3DE90D451BEB824F0098FDB2 /* NSDate+extension.m in Sources */,
 				3D72301C1BE3A68700D036BA /* MBProgressHUD.m in Sources */,
 				3D72304A1BE3E2C900D036BA /* SDWebImageDecoder.m in Sources */,
 				3D7230121BE3733700D036BA /* AFURLRequestSerialization.m in Sources */,
