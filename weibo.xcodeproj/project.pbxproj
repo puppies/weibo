@@ -46,6 +46,9 @@
 		3DABDB891BE70F8300EF7DA4 /* StatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DABDB881BE70F8300EF7DA4 /* StatusTableViewCell.m */; };
 		3DABDB8C1BE713E200EF7DA4 /* StatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DABDB8B1BE713E200EF7DA4 /* StatusFrame.m */; };
 		3DABDB8F1BE7176100EF7DA4 /* NSString+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DABDB8E1BE7176100EF7DA4 /* NSString+extension.m */; };
+		3DADD76C1BECA89100EFD127 /* StatusPicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DADD76B1BECA89100EFD127 /* StatusPicturesView.m */; };
+		3DADD76F1BECD3B000EFD127 /* StatusPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DADD76E1BECD3B000EFD127 /* StatusPictureView.m */; };
+		3DADD7721BED040900EFD127 /* IconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DADD7711BED040900EFD127 /* IconView.m */; };
 		3DAEBAF31BE4604600EC1937 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAEBAF21BE4604600EC1937 /* TitleButton.m */; };
 		3DB46EDD1BEA41860021BF7B /* StatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB46EDC1BEA41860021BF7B /* StatusToolBar.m */; };
 		3DBC18301BE1C9B1003934B8 /* DiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC18111BE1C9B1003934B8 /* DiscoverTableViewController.m */; };
@@ -173,6 +176,12 @@
 		3DABDB8B1BE713E200EF7DA4 /* StatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusFrame.m; sourceTree = "<group>"; };
 		3DABDB8D1BE7176100EF7DA4 /* NSString+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+extension.h"; sourceTree = "<group>"; };
 		3DABDB8E1BE7176100EF7DA4 /* NSString+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+extension.m"; sourceTree = "<group>"; };
+		3DADD76A1BECA89100EFD127 /* StatusPicturesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusPicturesView.h; sourceTree = "<group>"; };
+		3DADD76B1BECA89100EFD127 /* StatusPicturesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusPicturesView.m; sourceTree = "<group>"; };
+		3DADD76D1BECD3B000EFD127 /* StatusPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusPictureView.h; sourceTree = "<group>"; };
+		3DADD76E1BECD3B000EFD127 /* StatusPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusPictureView.m; sourceTree = "<group>"; };
+		3DADD7701BED040900EFD127 /* IconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconView.h; sourceTree = "<group>"; };
+		3DADD7711BED040900EFD127 /* IconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconView.m; sourceTree = "<group>"; };
 		3DAEBAF11BE4604600EC1937 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
 		3DAEBAF21BE4604600EC1937 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
 		3DB46EDB1BEA41860021BF7B /* StatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusToolBar.h; sourceTree = "<group>"; };
@@ -490,6 +499,12 @@
 				3DABDB881BE70F8300EF7DA4 /* StatusTableViewCell.m */,
 				3DB46EDB1BEA41860021BF7B /* StatusToolBar.h */,
 				3DB46EDC1BEA41860021BF7B /* StatusToolBar.m */,
+				3DADD76A1BECA89100EFD127 /* StatusPicturesView.h */,
+				3DADD76B1BECA89100EFD127 /* StatusPicturesView.m */,
+				3DADD76D1BECD3B000EFD127 /* StatusPictureView.h */,
+				3DADD76E1BECD3B000EFD127 /* StatusPictureView.m */,
+				3DADD7701BED040900EFD127 /* IconView.h */,
+				3DADD7711BED040900EFD127 /* IconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -824,7 +839,9 @@
 				3DBC18311BE1C9B1003934B8 /* HomeTableViewController.m in Sources */,
 				3D7230481BE3E2C900D036BA /* SDImageCache.m in Sources */,
 				3D72304D1BE3E2C900D036BA /* SDWebImageManager.m in Sources */,
+				3DADD76C1BECA89100EFD127 /* StatusPicturesView.m in Sources */,
 				3DFB83B51BE5240A00A1D6FD /* JSONModel+networking.m in Sources */,
+				3DADD7721BED040900EFD127 /* IconView.m in Sources */,
 				3DBC18301BE1C9B1003934B8 /* DiscoverTableViewController.m in Sources */,
 				3D72300D1BE3733700D036BA /* AFHTTPRequestOperationManager.m in Sources */,
 				3DFB83B11BE5240A00A1D6FD /* JSONModelError.m in Sources */,
@@ -845,6 +862,7 @@
 				3DFB83B41BE5240A00A1D6FD /* JSONHTTPClient.m in Sources */,
 				3D7230531BE3E2C900D036BA /* UIImageView+HighlightedWebCache.m in Sources */,
 				3D7230231BE3C2FB00D036BA /* UIWindow+extension.m in Sources */,
+				3DADD76F1BECD3B000EFD127 /* StatusPictureView.m in Sources */,
 				3D72300E1BE3733700D036BA /* AFHTTPSessionManager.m in Sources */,
 				3DFB83B31BE5240A00A1D6FD /* JSONAPI.m in Sources */,
 				3D72300C1BE3733700D036BA /* AFHTTPRequestOperation.m in Sources */,

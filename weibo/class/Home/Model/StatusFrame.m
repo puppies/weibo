@@ -10,6 +10,7 @@
 #import "Status.h"
 #import "NSString+extension.h"
 #import "User.h"
+#import "StatusPicturesView.h"
 
 @implementation StatusFrame
 
@@ -23,7 +24,7 @@
     User *user = status.user;
     CGFloat iconX = Padding;
     CGFloat iconY = Padding;
-    CGFloat iconWH = 34;
+    CGFloat iconWH = 35;
     self.iconF = CGRectMake(iconX, iconY, iconWH, iconWH);
     
     CGFloat nameX = CGRectGetMaxX(self.iconF) + Padding;
@@ -57,12 +58,13 @@
     
     CGFloat originH = 0;
     if (status.pic_urls.count) {
-        CGFloat pictureWH = 76;
-        CGFloat pictureX = contentX;
-        CGFloat pictureY = CGRectGetMaxY(self.contentF) + Padding;
-        self.pictureF = CGRectMake(pictureX, pictureY, pictureWH, pictureWH);
+
+        CGFloat picturesX = contentX;
+        CGFloat picturesY = CGRectGetMaxY(self.contentF) + Padding;
+        CGSize picturesSize = [StatusPicturesView sizeWithPicturesNumber:status.pic_urls.count];
+        self.picturesF = (CGRect){{picturesX, picturesY}, picturesSize};
         
-        originH = CGRectGetMaxY(self.pictureF) + Padding;
+        originH = CGRectGetMaxY(self.picturesF) + Padding;
     } else {
         originH = CGRectGetMaxY(self.contentF) + Padding;
     }
@@ -85,12 +87,12 @@
         
         CGFloat forwardH = 0;
         if (forwardStatus.pic_urls.count) {
-            CGFloat forwardPictureWH = 76;
-            CGFloat forwardPictureX = forwardContentX;
-            CGFloat forwardPictureY = CGRectGetMaxY(self.forwardContentF) + Padding;
-            self.forwardPictureF = CGRectMake(forwardPictureX, forwardPictureY, forwardPictureWH, forwardPictureWH);
+            CGFloat forwardPicturesX = forwardContentX;
+            CGFloat forwardPicturesY = CGRectGetMaxY(self.forwardContentF) + Padding;
+            CGSize forwardPicturesSize = [StatusPicturesView sizeWithPicturesNumber:forwardStatus.pic_urls.count];
+            self.forwardPicturesF = (CGRect){{forwardPicturesX, forwardPicturesY}, forwardPicturesSize};
             
-            forwardH = CGRectGetMaxY(self.forwardPictureF) + Padding;
+            forwardH = CGRectGetMaxY(self.forwardPicturesF) + Padding;
         } else {
             forwardH = CGRectGetMaxY(self.forwardContentF) + Padding;
         }

@@ -14,6 +14,8 @@
 #import "Picture.h"
 #import "StatusToolBar.h"
 #import "NSString+extension.h"
+#import "StatusPicturesView.h"
+#import "IconView.h"
 
 @implementation StatusTableViewCell
 
@@ -40,7 +42,7 @@
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
-    UIImageView *iconView = [[UIImageView alloc] init];
+    IconView *iconView = [[IconView alloc] init];
     [originalView addSubview:iconView];
     self.iconView = iconView;
     
@@ -71,9 +73,9 @@
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
     
-    UIImageView *pictureView = [[UIImageView alloc] init];
-    [originalView addSubview:pictureView];
-    self.pictureView = pictureView;
+    StatusPicturesView *picturesView = [[StatusPicturesView alloc] init];
+    [originalView addSubview:picturesView];
+    self.picturesView = picturesView;
 
 }
 
@@ -92,9 +94,9 @@
     [forwardView addSubview:forwardContentLabel];
     self.forwardContentLabel = forwardContentLabel;
     
-    UIImageView *forwardPictureView = [[UIImageView alloc] init];
-    [forwardView addSubview:forwardPictureView];
-    self.forwardPictureView = forwardPictureView;
+    StatusPicturesView *forwardPicturesView = [[StatusPicturesView alloc] init];
+    [forwardView addSubview:forwardPicturesView];
+    self.forwardPicturesView = forwardPicturesView;
 
 }
 
@@ -117,9 +119,8 @@
     
     self.originalView.frame = statusFrame.originF;
     
-    NSURL *url = [NSURL URLWithString:user.profile_image_url];
     self.iconView.frame = statusFrame.iconF;
-    [self.iconView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.iconView.user = user;
     
     self.nameLabel.frame = statusFrame.nameF;
     self.nameLabel.text = user.name;
@@ -150,12 +151,11 @@
     self.contentLabel.text = status.text;
     
     if (status.pic_urls.count) {
-        self.pictureView.hidden = NO;
-        self.pictureView.frame = statusFrame.pictureF;
-        Picture *pic = [status.pic_urls firstObject];
-        [self.pictureView sd_setImageWithURL:[NSURL URLWithString:pic.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.picturesView.hidden = NO;
+        self.picturesView.frame = statusFrame.picturesF;
+        self.picturesView.pictures = status.pic_urls;
     } else {
-        self.pictureView.hidden = YES;
+        self.picturesView.hidden = YES;
     }
     
     if (forwardStatus) {
@@ -168,12 +168,11 @@
         self.forwardContentLabel.text = forwardContent;
         
         if (forwardStatus.pic_urls.count) {
-            self.forwardPictureView.hidden = NO;
-            self.forwardPictureView.frame = statusFrame.forwardPictureF;
-            Picture *pic = [forwardStatus.pic_urls firstObject];
-            [self.forwardPictureView sd_setImageWithURL:[NSURL URLWithString:pic.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            self.forwardPicturesView.hidden = NO;
+            self.forwardPicturesView.frame = statusFrame.forwardPicturesF;
+            self.forwardPicturesView.pictures = forwardStatus.pic_urls;
         } else {
-            self.forwardPictureView.hidden = YES;
+            self.forwardPicturesView.hidden = YES;
         }
     } else {
         self.forwardView.hidden = YES;

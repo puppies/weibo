@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "JSONModel.h"
 
+typedef enum {
+    VerifiedTypeNone        = -1,
+    VerifiedTypePersonal    = 0,
+    VerifiedTypeEnterprice  = 2,
+    VerifiedTypeMedia       = 3,
+    VerifiedTypeWebsite     = 5,
+    VerifiedTypeDaren       = 220
+    
+}VerifiedType;
+
 @interface User : JSONModel
 
 @property (nonatomic, copy)NSString *idstr;
@@ -17,6 +27,7 @@
 @property (nonatomic, assign)int mbrank;
 @property (nonatomic, assign)int mbtype;
 @property (nonatomic, assign, getter=isVip)BOOL vip;
+@property (nonatomic, assign)int verified_type;
 
 
 

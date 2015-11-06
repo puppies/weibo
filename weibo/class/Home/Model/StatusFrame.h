@@ -26,11 +26,11 @@
 @property (nonatomic, assign)CGRect timeF;
 @property (nonatomic, assign)CGRect sourceF;
 @property (nonatomic, assign)CGRect contentF;
-@property (nonatomic, assign)CGRect pictureF;
+@property (nonatomic, assign)CGRect picturesF;
 
 @property (nonatomic, assign)CGRect forwardF;
 @property (nonatomic, assign)CGRect forwardContentF;
-@property (nonatomic, assign)CGRect forwardPictureF;
+@property (nonatomic, assign)CGRect forwardPicturesF;
 
 
 @property (nonatomic, assign)CGRect toolF;
