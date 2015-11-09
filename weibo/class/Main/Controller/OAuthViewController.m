@@ -29,7 +29,7 @@
     OAuthWebView.delegate = self;
     self.view = OAuthWebView;
     
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=3588898750&redirect_uri=https://api.weibo.com/oauth2/default.html"];
+    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=1329867940&redirect_uri=https://api.weibo.com/oauth2/default.html"];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     
     [OAuthWebView loadRequest:req];
@@ -60,8 +60,8 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"client_id"] = @"3588898750";
-    params[@"client_secret"] = @"fd8ca23ad692303efdf18ab2f97c24b1";
+    params[@"client_id"] = @"1329867940";
+    params[@"client_secret"] = @"41d09a42522e27fe1de2b0ff7fc9aa00";
     params[@"grant_type"] = @"authorization_code";
     params[@"code"] = code;
     params[@"redirect_uri"] = @"https://api.weibo.com/oauth2/default.html";

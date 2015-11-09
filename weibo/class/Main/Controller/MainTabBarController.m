@@ -13,6 +13,7 @@
 #import "ProfileTableViewController.h"
 #import "WBNavigationController.h"
 #import "WBTabBar.h"
+#import "ComposeViewController.h"
 
 @interface MainTabBarController () <WBTabBarDelegate>
 
@@ -73,7 +74,10 @@
 #pragma mark - WBTabBar delegate
 
 - (void)tabBarDidClickPlusButton:(UITabBar *)tabBar {
-    [self presentViewController:[[UINavigationController alloc] init] animated:YES completion:nil];
+    
+    ComposeViewController *cmpVC = [[ComposeViewController alloc] init];
+    WBNavigationController *nvc = [[WBNavigationController alloc] initWithRootViewController:cmpVC];
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 @end
