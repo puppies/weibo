@@ -144,7 +144,10 @@
     self.timeLabel.frame = (CGRect){{timeX, timeY}, timeSize};
     self.timeLabel.text = status.created_at;
     
-    self.sourceLabel.frame = statusFrame.sourceF;
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabel.frame) + Padding;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [status.source sizeWithFont:SourceFont];
+    self.sourceLabel.frame = (CGRect){{sourceX, sourceY}, sourceSize};
     self.sourceLabel.text = status.source;
     
     self.contentLabel.frame = statusFrame.contentF;
