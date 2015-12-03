@@ -15,17 +15,32 @@
 #import "ToolBar.h"
 #import "MBProgressHUD.h"
 #import "ComposePicturesView.h"
+#import "EmotionKeyboardView.h"
 
 @interface ComposeViewController () <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, weak)InputTextView *textView;
 @property (nonatomic, weak)ToolBar *keyboardToolBar;
 @property (nonatomic, weak)ComposePicturesView *picturesView;
-
+@property (nonatomic, strong)EmotionKeyboardView *emotionKeyboard;
+@property (nonatomic)BOOL isSwitchingKeyboard;
 
 @end
 
 @implementation ComposeViewController
+
+#pragma mark - lazy alloc
+
+- (EmotionKeyboardView *)emotionKeyboard {
+    if (!_emotionKeyboard) {
+        _emotionKeyboard = [[EmotionKeyboardView alloc] init];
+        
+        _emotionKeyboard.width = self.view.width;
+        _emotionKeyboard.height = 254;
+        self.emotionKeyboard = _emotionKeyboard;
+    }
+    return _emotionKeyboard;
+}
 
 - (void)viewDidLoad {
     
@@ -67,7 +82,7 @@
     [tb addButton:@"compose_toolbar_picture" highlightedImage:@"compose_toolbar_picture_highlighted" target:self action:@selector(pickAlbum)];
     [tb addButton:@"compose_mentionbutton_background" highlightedImage:@"compose_mentionbutton_background_highlighted" target:self action:@selector(mention)];
     [tb addButton:@"compose_trendbutton_background" highlightedImage:@"compose_trendbutton_background_highlighted" target:self action:@selector(trend)];
-    [tb addButton:@"compose_emoticonbutton_background" highlightedImage:@"compose_emoticonbutton_background_highlighted" target:self action:@selector(pickEmoticon)];
+    [tb addButton:@"compose_emoticonbutton_background" highlightedImage:@"compose_emoticonbutton_background_highlighted" target:self action:@selector(pickEmoticon:)];
     
     [self.view addSubview:tb];
     self.keyboardToolBar = tb;
@@ -86,7 +101,6 @@
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
     [notificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
     [notificationCenter addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-
 }
 
 - (void)setupNav {
@@ -179,6 +193,9 @@
 }
 
 - (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    if (self.isSwitchingKeyboard) {
+        return;
+    }
     
     NSDictionary *info = notification.userInfo;
     double duration = [info[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -226,8 +243,26 @@
     
 }
 
-- (void)pickEmoticon {
+- (void)pickEmoticon:(UIButton *)button {
     
+    if (self.textView.inputView) {  // switch to default keyboard
+        self.textView.inputView = nil;
+        [button setImage:[UIImage imageNamed:@"compose_emoticonbutton_background"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"compose_emoticonbutton_background_highlighted"] forState:UIControlStateHighlighted];
+
+    } else {    // switch to emotion keyboard
+        self.textView.inputView = self.emotionKeyboard;
+        [button setImage:[UIImage imageNamed:@"compose_keyboardbutton_background"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"compose_keyboardbutton_background_highlighted"] forState:UIControlStateHighlighted];
+    }
+    self.isSwitchingKeyboard = YES;
+    [self.textView resignFirstResponder];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.textView becomeFirstResponder];
+        self.isSwitchingKeyboard = NO;
+
+    });
 }
 
 #pragma mark - UIImagePickerControllerDelegate
