@@ -151,7 +151,7 @@
     self.sourceLabel.text = status.source;
     
     self.contentLabel.frame = statusFrame.contentF;
-    self.contentLabel.text = status.text;
+    self.contentLabel.attributedText = status.attributedText;
     
     if (status.pic_urls.count) {
         self.picturesView.hidden = NO;
@@ -167,8 +167,9 @@
         self.forwardView.frame = statusFrame.forwardF;
         
         self.forwardContentLabel.frame = statusFrame.forwardContentF;
-        NSString *forwardContent = [NSString stringWithFormat:@"@%@ : %@", forwardStatus.user.name, forwardStatus.text];
-        self.forwardContentLabel.text = forwardContent;
+//        NSString *forwardContent = [NSString stringWithFormat:@"@%@ : %@", forwardStatus.user.name, forwardStatus.text];
+//        self.forwardContentLabel.text = forwardContent;
+        self.forwardContentLabel.attributedText = status.retweetedAttributedText;
         
         if (forwardStatus.pic_urls.count) {
             self.forwardPicturesView.hidden = NO;

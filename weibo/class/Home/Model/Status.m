@@ -9,6 +9,10 @@
 #import "Status.h"
 #import "User.h"
 #import "NSDate+extension.h"
+#import "RegexKitLite.h"
+#import "SpecialText.h"
+#import "Emotion.h"
+#import "EmotionTool.h"
 
 @implementation Status
 //
@@ -35,7 +39,62 @@
 }
 
 + (BOOL)propertyIsOptional:(NSString *)propertyName {
-    return [propertyName isEqualToString:@"retweeted_status"]? YES : NO;
+    return ([propertyName isEqualToString:@"retweeted_status"] || [propertyName isEqualToString:@"attributedText"] || [propertyName isEqualToString:@"retweetedAttributedText"])? YES : NO;
+}
+
+
+- (NSAttributedString *)attributedTextWithText:(NSString *)text {
+    
+    NSMutableAttributedString *atrributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableArray *emotions = [NSMutableArray array];
+    
+    NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
+    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5]+";
+    NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
+    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+    
+    NSString *patterns = [NSString stringWithFormat:@"%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern];
+    
+    [text enumerateStringsMatchedByRegex:patterns usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        [atrributedText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:*capturedRanges];
+        
+        if ([*capturedStrings hasPrefix:@"["] && [*capturedStrings hasSuffix:@"]"]) {
+            SpecialText *emotion = [SpecialText textWithString:*capturedStrings range:*capturedRanges];
+            [emotions insertObject:emotion atIndex:0];
+        }
+        
+    }];
+    
+    for (SpecialText *emotionText in emotions) {
+        NSTextAttachment *attatchment = [[NSTextAttachment alloc] init];
+        Emotion *emotion = [ EmotionTool emotionWithChs:emotionText.string];
+        NSLog(@"%@ %@ %@", emotionText.string, emotion.chs, emotion.png);
+
+        if (emotion.png) {
+            attatchment.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", emotion.png]];
+            attatchment.bounds = CGRectMake(0, 0, ContentFont.lineHeight, ContentFont.lineHeight);
+            NSAttributedString *attributedString = [NSAttributedString attributedStringWithAttachment:attatchment];
+            [atrributedText replaceCharactersInRange:emotionText.range withAttributedString:attributedString];
+        }
+        
+    }
+    
+    [atrributedText addAttribute:NSFontAttributeName value:ContentFont range:NSMakeRange(0, atrributedText.length)];
+
+    return atrributedText;
+}
+
+- (void)setText:(NSString *)text {
+    _text = [text copy];
+    
+    self.attributedText = [self attributedTextWithText:text];
+}
+
+-(void)setRetweeted_status:(Status *)retweeted_status {
+    _retweeted_status = retweeted_status;
+    
+    NSString *forwardContent = [NSString stringWithFormat:@"@%@ : %@", retweeted_status.user.name, retweeted_status.text];
+    self.retweetedAttributedText = [self attributedTextWithText:forwardContent];
 }
 
 - (NSString *)created_at {

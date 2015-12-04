@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *idstr;
 @property (nonatomic, copy) NSString *created_at;
 @property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSAttributedString *attributedText;
 @property (nonatomic, copy) NSString *source;
 //@property (nonatomic, copy) NSString *thumbnail_pic;
 //@property (nonatomic, copy) NSString *original_pic;
@@ -25,6 +26,8 @@
 @property (nonatomic)NSArray *pic_urls;
 
 @property (nonatomic)Status *retweeted_status;
+@property (nonatomic, copy) NSAttributedString *retweetedAttributedText;
+
 
 @property (nonatomic)User *user;
 

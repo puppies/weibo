@@ -15,7 +15,7 @@
 #define NameFont [UIFont systemFontOfSize:13]
 #define TimeFont [UIFont systemFontOfSize:10]
 #define SourceFont TimeFont
-#define ContentFont [UIFont systemFontOfSize:14]
+
 
 @interface StatusFrame : NSObject
 

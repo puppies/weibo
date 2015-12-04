@@ -53,7 +53,7 @@
     CGFloat contentX = iconX;
     CGFloat contentY = MAX(CGRectGetMaxY(self.nameF), CGRectGetMaxY(self.iconF)) + Padding;
     CGFloat maxW = cellWidth - 2 * Padding;
-    CGSize contentSize = [status.text sizeWithFont:ContentFont maxWidth:maxW];
+    CGSize contentSize = [status.attributedText boundingRectWithSize:CGSizeMake(maxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
     self.contentF = (CGRect){{contentX, contentY}, contentSize};
     
     CGFloat originH = 0;
@@ -81,8 +81,7 @@
         CGFloat forwardContentY = Padding;
         //    CGFloat maxW = cellWidth - 2 * Padding;
         
-        NSString *forwardContent = [NSString stringWithFormat:@"@%@ : %@", forwardStatus.user.name, forwardStatus.text];
-        CGSize forwardContentSize = [forwardContent sizeWithFont:ContentFont maxWidth:maxW];
+        CGSize forwardContentSize = [status.retweetedAttributedText boundingRectWithSize:CGSizeMake(maxW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
         self.forwardContentF = (CGRect){{forwardContentX, forwardContentY}, forwardContentSize};
         
         CGFloat forwardH = 0;
