@@ -73,7 +73,7 @@
 		3DF4CFF51C19631900A6640F /* EmotionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4CFF31C19631900A6640F /* EmotionGroup.m */; };
 		3DF4CFF71C1963B600A6640F /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF4CFF61C1963B600A6640F /* libicucore.tbd */; };
 		3DF4CFF91C19648D00A6640F /* Emoticons in Resources */ = {isa = PBXBuildFile; fileRef = 3DF4CFF81C19648D00A6640F /* Emoticons */; };
-		3DF4D0041C199C3900A6640F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4D0031C199C3900A6640F /* RegexKitLite.m */; };
+		3DF4D0041C199C3900A6640F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4D0031C199C3900A6640F /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DFB377F1BF0D2B000B21396 /* ComposePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB377E1BF0D2B000B21396 /* ComposePicturesView.m */; };
 		3DFB83901BE4C16000A1D6FD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB838F1BE4C16000A1D6FD /* User.m */; };
 		3DFB83931BE4C16D00A1D6FD /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB83921BE4C16D00A1D6FD /* Status.m */; };
