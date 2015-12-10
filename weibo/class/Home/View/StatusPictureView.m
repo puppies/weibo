@@ -25,6 +25,7 @@
     if (self) {
         self.contentMode = UIViewContentModeScaleAspectFit;
         self.clipsToBounds = YES;
+        self.userInteractionEnabled = YES;
     }
     return self;
 }

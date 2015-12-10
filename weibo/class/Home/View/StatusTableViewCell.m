@@ -16,6 +16,7 @@
 #import "NSString+extension.h"
 #import "StatusPicturesView.h"
 #import "IconView.h"
+#import "StatusTextView.h"
 
 @implementation StatusTableViewCell
 
@@ -67,11 +68,12 @@
     [originalView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
     
-    UILabel *contentLabel = [[UILabel alloc] init];
-    contentLabel.font = ContentFont;
-    contentLabel.numberOfLines = 0;
-    [originalView addSubview:contentLabel];
-    self.contentLabel = contentLabel;
+    StatusTextView *contentTextView = [[StatusTextView alloc] init];
+//    contentTextView.font = ContentFont;
+//    contentTextView.backgroundColor = [UIColor redColor];
+
+    [originalView addSubview:contentTextView];
+    self.contentTextView = contentTextView;
     
     StatusPicturesView *picturesView = [[StatusPicturesView alloc] init];
     [originalView addSubview:picturesView];
@@ -88,11 +90,10 @@
     [self.contentView addSubview:forwardView];
     self.forwardView = forwardView;
     
-    UILabel *forwardContentLabel = [[UILabel alloc] init];
-    forwardContentLabel.font = ContentFont;
-    forwardContentLabel.numberOfLines = 0;
-    [forwardView addSubview:forwardContentLabel];
-    self.forwardContentLabel = forwardContentLabel;
+    StatusTextView *forwardContentTextView = [[StatusTextView alloc] init];
+//    forwardContentTextView.font = ContentFont;
+    [forwardView addSubview:forwardContentTextView];
+    self.forwardContentTextView = forwardContentTextView;
     
     StatusPicturesView *forwardPicturesView = [[StatusPicturesView alloc] init];
     [forwardView addSubview:forwardPicturesView];
@@ -150,8 +151,8 @@
     self.sourceLabel.frame = (CGRect){{sourceX, sourceY}, sourceSize};
     self.sourceLabel.text = status.source;
     
-    self.contentLabel.frame = statusFrame.contentF;
-    self.contentLabel.attributedText = status.attributedText;
+    self.contentTextView.frame = statusFrame.contentF;
+    self.contentTextView.attributedText = status.attributedText;
     
     if (status.pic_urls.count) {
         self.picturesView.hidden = NO;
@@ -166,10 +167,10 @@
         self.forwardView.hidden = NO;
         self.forwardView.frame = statusFrame.forwardF;
         
-        self.forwardContentLabel.frame = statusFrame.forwardContentF;
+        self.forwardContentTextView.frame = statusFrame.forwardContentF;
 //        NSString *forwardContent = [NSString stringWithFormat:@"@%@ : %@", forwardStatus.user.name, forwardStatus.text];
 //        self.forwardContentLabel.text = forwardContent;
-        self.forwardContentLabel.attributedText = status.retweetedAttributedText;
+        self.forwardContentTextView.attributedText = status.retweetedAttributedText;
         
         if (forwardStatus.pic_urls.count) {
             self.forwardPicturesView.hidden = NO;

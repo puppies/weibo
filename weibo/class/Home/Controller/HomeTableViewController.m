@@ -237,7 +237,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
+//    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
 }
 
 /*

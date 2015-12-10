@@ -44,6 +44,7 @@
 
 
 - (NSAttributedString *)attributedTextWithText:(NSString *)text {
+    NSLog(@"%@", text);
     
     NSMutableAttributedString *atrributedText = [[NSMutableAttributedString alloc] initWithString:text];
     NSMutableArray *emotions = [NSMutableArray array];
@@ -56,6 +57,7 @@
     NSString *patterns = [NSString stringWithFormat:@"%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern];
     
     [text enumerateStringsMatchedByRegex:patterns usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        NSLog(@"capturedString: %@", *capturedStrings);
         [atrributedText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:*capturedRanges];
         
         if ([*capturedStrings hasPrefix:@"["] && [*capturedStrings hasSuffix:@"]"]) {

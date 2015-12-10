@@ -18,7 +18,7 @@ static NSArray *_defaultEmotions, *_lxhEmotions;
 
 + (NSArray *)defaultEmotions {
     if (!_defaultEmotions) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotIcons/default/info.plist" ofType:nil];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Emoticons/default/info.plist" ofType:nil];
         EmotionGroup *defaultGroup = [[EmotionGroup alloc] initWithDictionary:[NSDictionary dictionaryWithContentsOfFile:path] error:nil];
 
         _defaultEmotions = defaultGroup.emoticon_group_emoticons;
@@ -27,8 +27,8 @@ static NSArray *_defaultEmotions, *_lxhEmotions;
 }
 
 + (NSArray *)lxhEmotions {
-    if (_lxhEmotions) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotIcons/lxh/info.plist" ofType:nil];
+    if (!_lxhEmotions) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Emoticons/lxh/info.plist" ofType:nil];
         EmotionGroup *lxhGroup = [[EmotionGroup alloc] initWithDictionary:[NSDictionary dictionaryWithContentsOfFile:path] error:nil];
 
         _lxhEmotions = lxhGroup.emoticon_group_emoticons;
