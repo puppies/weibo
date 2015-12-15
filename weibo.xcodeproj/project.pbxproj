@@ -65,6 +65,8 @@
 		3DBC18391BE1CBB8003934B8 /* UIBarButtonItem+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC18381BE1CBB8003934B8 /* UIBarButtonItem+extension.m */; };
 		3DBC183D1BE2285B003934B8 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC183C1BE2285B003934B8 /* WBTabBar.m */; };
 		3DBC18401BE26FFE003934B8 /* NewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBC183F1BE26FFE003934B8 /* NewFeatureViewController.m */; };
+		3DD94CF21C1A8C1D00B4A0BC /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD94CF11C1A8C1D00B4A0BC /* CommentsTableViewController.m */; };
+		3DD94CF51C1A92B900B4A0BC /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD94CF41C1A92B900B4A0BC /* Comment.m */; };
 		3DE90D451BEB824F0098FDB2 /* NSDate+extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE90D441BEB824F0098FDB2 /* NSDate+extension.m */; };
 		3DF4CFE51C1961B200A6640F /* EmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4CFE31C1961B200A6640F /* EmotionTool.m */; };
 		3DF4CFE81C19620F00A6640F /* StatusTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4CFE71C19620F00A6640F /* StatusTextView.m */; };
@@ -74,6 +76,7 @@
 		3DF4CFF71C1963B600A6640F /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF4CFF61C1963B600A6640F /* libicucore.tbd */; };
 		3DF4CFF91C19648D00A6640F /* Emoticons in Resources */ = {isa = PBXBuildFile; fileRef = 3DF4CFF81C19648D00A6640F /* Emoticons */; };
 		3DF4D0041C199C3900A6640F /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4D0031C199C3900A6640F /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3DF4D0071C19B24A00A6640F /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF4D0061C19B24A00A6640F /* WebViewController.m */; };
 		3DFB377F1BF0D2B000B21396 /* ComposePicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB377E1BF0D2B000B21396 /* ComposePicturesView.m */; };
 		3DFB83901BE4C16000A1D6FD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB838F1BE4C16000A1D6FD /* User.m */; };
 		3DFB83931BE4C16D00A1D6FD /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB83921BE4C16D00A1D6FD /* Status.m */; };
@@ -228,6 +231,10 @@
 		3DBC183C1BE2285B003934B8 /* WBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBar.m; sourceTree = "<group>"; };
 		3DBC183E1BE26FFE003934B8 /* NewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureViewController.h; sourceTree = "<group>"; };
 		3DBC183F1BE26FFE003934B8 /* NewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureViewController.m; sourceTree = "<group>"; };
+		3DD94CF01C1A8C1D00B4A0BC /* CommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTableViewController.h; sourceTree = "<group>"; };
+		3DD94CF11C1A8C1D00B4A0BC /* CommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTableViewController.m; sourceTree = "<group>"; };
+		3DD94CF31C1A92B900B4A0BC /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		3DD94CF41C1A92B900B4A0BC /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		3DE90D431BEB824F0098FDB2 /* NSDate+extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+extension.h"; sourceTree = "<group>"; };
 		3DE90D441BEB824F0098FDB2 /* NSDate+extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+extension.m"; sourceTree = "<group>"; };
 		3DF4CFE21C1961B200A6640F /* EmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionTool.h; sourceTree = "<group>"; };
@@ -244,6 +251,8 @@
 		3DF4CFF81C19648D00A6640F /* Emoticons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Emoticons; sourceTree = "<group>"; };
 		3DF4D0021C199C3900A6640F /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		3DF4D0031C199C3900A6640F /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		3DF4D0051C19B24A00A6640F /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		3DF4D0061C19B24A00A6640F /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		3DFB377D1BF0D2B000B21396 /* ComposePicturesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposePicturesView.h; sourceTree = "<group>"; };
 		3DFB377E1BF0D2B000B21396 /* ComposePicturesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposePicturesView.m; sourceTree = "<group>"; };
 		3DFB838E1BE4C16000A1D6FD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -563,6 +572,10 @@
 			children = (
 				3DBC18161BE1C9B1003934B8 /* HomeTableViewController.h */,
 				3DBC18171BE1C9B1003934B8 /* HomeTableViewController.m */,
+				3DF4D0051C19B24A00A6640F /* WebViewController.h */,
+				3DF4D0061C19B24A00A6640F /* WebViewController.m */,
+				3DD94CF01C1A8C1D00B4A0BC /* CommentsTableViewController.h */,
+				3DD94CF11C1A8C1D00B4A0BC /* CommentsTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -580,6 +593,8 @@
 				3DABDB8B1BE713E200EF7DA4 /* StatusFrame.m */,
 				3D7125731BE868FC00B3EFFC /* Picture.h */,
 				3D7125741BE868FC00B3EFFC /* Picture.m */,
+				3DD94CF31C1A92B900B4A0BC /* Comment.h */,
+				3DD94CF41C1A92B900B4A0BC /* Comment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -962,6 +977,7 @@
 				3DBC18361BE1C9B1003934B8 /* ProfileTableViewController.m in Sources */,
 				3DE90D451BEB824F0098FDB2 /* NSDate+extension.m in Sources */,
 				3D72301C1BE3A68700D036BA /* MBProgressHUD.m in Sources */,
+				3DD94CF21C1A8C1D00B4A0BC /* CommentsTableViewController.m in Sources */,
 				3D10F8D91BEE518F007BBB59 /* ComposeViewController.m in Sources */,
 				3D72304A1BE3E2C900D036BA /* SDWebImageDecoder.m in Sources */,
 				3D7230121BE3733700D036BA /* AFURLRequestSerialization.m in Sources */,
@@ -996,6 +1012,7 @@
 				3D7230141BE3733700D036BA /* AFURLSessionManager.m in Sources */,
 				3D7230501BE3E2C900D036BA /* UIImage+GIF.m in Sources */,
 				3D72304B1BE3E2C900D036BA /* SDWebImageDownloader.m in Sources */,
+				3DF4D0071C19B24A00A6640F /* WebViewController.m in Sources */,
 				3D6D58451BE0CF7200D5E7B5 /* AppDelegate.m in Sources */,
 				3D7230181BE39C6800D036BA /* Account.m in Sources */,
 				3DABDB8C1BE713E200EF7DA4 /* StatusFrame.m in Sources */,
@@ -1008,6 +1025,7 @@
 				3DBC18341BE1C9B1003934B8 /* WBNavigationController.m in Sources */,
 				3DF4CFF51C19631900A6640F /* EmotionGroup.m in Sources */,
 				3DFB83AE1BE5240A00A1D6FD /* JSONModel.m in Sources */,
+				3DD94CF51C1A92B900B4A0BC /* Comment.m in Sources */,
 				3DBC18401BE26FFE003934B8 /* NewFeatureViewController.m in Sources */,
 				3D7230131BE3733700D036BA /* AFURLResponseSerialization.m in Sources */,
 				3DFB83931BE4C16D00A1D6FD /* Status.m in Sources */,

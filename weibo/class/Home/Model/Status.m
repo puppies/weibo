@@ -58,11 +58,13 @@
     
     [text enumerateStringsMatchedByRegex:patterns usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
         NSLog(@"capturedString: %@", *capturedStrings);
-        [atrributedText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:*capturedRanges];
+//        [atrributedText addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:*capturedRanges];
         
         if ([*capturedStrings hasPrefix:@"["] && [*capturedStrings hasSuffix:@"]"]) {
             SpecialText *emotion = [SpecialText textWithString:*capturedStrings range:*capturedRanges];
             [emotions insertObject:emotion atIndex:0];
+        } else {
+            [atrributedText addAttribute: NSLinkAttributeName value:*capturedStrings range:*capturedRanges];
         }
         
     }];

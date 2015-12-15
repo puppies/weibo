@@ -17,10 +17,13 @@
         self.scrollEnabled = NO;
         self.editable = NO;
         self.font = ContentFont;
+        self.backgroundColor = [UIColor clearColor];
         self.textContainer.lineFragmentPadding = 0;
         self.textContainerInset = UIEdgeInsetsZero;
     }
     return self;
 }
+
+
 
 @end

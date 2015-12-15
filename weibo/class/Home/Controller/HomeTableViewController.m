@@ -17,8 +17,11 @@
 #import "Status.h"
 #import "StatusFrame.h"
 #import "StatusTableViewCell.h"
+#import "WebViewController.h"
+#import "StatusTextView.h"
+#import "CommentsTableViewController.h"
 
-@interface HomeTableViewController () <UIScrollViewDelegate>
+@interface HomeTableViewController () <UIScrollViewDelegate, UITextViewDelegate>
 
 @property (nonatomic)NSMutableArray *statusFrames;
 
@@ -220,6 +223,8 @@
     // Configure the cell...
     StatusFrame *frame = self.statusFrames[indexPath.row];
     cell.statusFrame = frame;
+    cell.contentTextView.delegate = self;
+    cell.forwardContentTextView.delegate = self;
 //    Status *status = frame.status;
 //    User *user = status.user;
 //    cell.textLabel.text = status.text;
@@ -237,7 +242,12 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self.navigationController pushViewController:[[UIViewController alloc] init] animated:YES];
+    StatusFrame *frame = self.statusFrames[indexPath.row];
+    NSString *statusID = frame.status.idstr;
+    
+    CommentsTableViewController *commentsTableViewController = [[CommentsTableViewController alloc] init];
+    commentsTableViewController.statusID = statusID;
+    [self.navigationController pushViewController:commentsTableViewController animated:YES];
 }
 
 /*
@@ -346,4 +356,17 @@
     }
 }
 
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    WebViewController *webVC = [[WebViewController alloc] init];
+    webVC.url = URL;
+    
+    [self.navigationController pushViewController:webVC animated:YES];
+    
+    return NO;
+}
 @end

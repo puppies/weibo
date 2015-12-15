@@ -71,9 +71,10 @@
     StatusTextView *contentTextView = [[StatusTextView alloc] init];
 //    contentTextView.font = ContentFont;
 //    contentTextView.backgroundColor = [UIColor redColor];
-
+    
     [originalView addSubview:contentTextView];
     self.contentTextView = contentTextView;
+
     
     StatusPicturesView *picturesView = [[StatusPicturesView alloc] init];
     [originalView addSubview:picturesView];
@@ -83,9 +84,10 @@
 
 - (void)setupForwardView {
     /** 转发 */
-    UIImageView *forwardView = [[UIImageView alloc] init];
-    forwardView.image = [UIImage imageNamed:@"timeline_retweet_background"];
-    forwardView.highlightedImage = [UIImage imageNamed:@"timeline_retweet_background_highlighted"];
+    UIView *forwardView = [[UIView alloc] init];
+//    forwardView.image = [UIImage imageNamed:@"timeline_retweet_background"];
+//    forwardView.highlightedImage = [UIImage imageNamed:@"timeline_retweet_background_highlighted"];
+    forwardView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_retweet_background"]];
     
     [self.contentView addSubview:forwardView];
     self.forwardView = forwardView;
@@ -187,6 +189,5 @@
     self.toolBarView.status = status;
 
 }
-
 
 @end

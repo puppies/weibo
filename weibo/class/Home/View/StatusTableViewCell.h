@@ -26,7 +26,7 @@
 @property (nonatomic)StatusTextView *contentTextView;
 @property (nonatomic)StatusPicturesView *picturesView;
 
-@property (nonatomic)UIImageView *forwardView;
+@property (nonatomic)UIView *forwardView;
 @property (nonatomic)StatusTextView *forwardContentTextView;
 @property (nonatomic)StatusPicturesView *forwardPicturesView;
 
