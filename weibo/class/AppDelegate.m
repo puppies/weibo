@@ -13,7 +13,8 @@
 #import "AccountTool.h"
 #import "UIWindow+extension.h"
 #import "SDWebImageManager.h"
-
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
 @interface AppDelegate ()
 
 @end
@@ -37,6 +38,10 @@
     
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
     [application registerUserNotificationSettings: settings];
+    
+    [UMSocialData openLog:YES];
+    [UMSocialData setAppKey:@"5670ee64e0f55a7071002940"];
+    [UMSocialWechatHandler setWXAppId:@"wxb5e4e8d85f16ab6d" appSecret:@"798fd63ec52caf8eb0f655d603fd020b" url:nil];
     
     return YES;
 }
@@ -71,6 +76,22 @@
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
     [manager cancelAll];
     [manager.imageCache clearMemory];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
 }
 
 @end

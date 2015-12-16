@@ -10,6 +10,10 @@
 #import "UIImageView+WebCache.h"
 #import "Picture.h"
 #import "StatusPictureView.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
+#import "SDWebImageManager+MJ.h"
+
 #define PictureWH 76
 #define PictureMargin 10
 
@@ -17,7 +21,14 @@
 
 #define MaxStatusPicturesCol(count) (count == 4? 2 : 3)
 
+@interface StatusPicturesView ()
+
+@property (nonatomic)NSMutableArray *photos;
+
+@end
+
 @implementation StatusPicturesView
+
 
 + (CGSize)sizeWithPicturesNumber:(unsigned long)count {
     int maxCol = MaxStatusPicturesCol(count);
@@ -47,6 +58,11 @@
             imageView.hidden = NO;
             Picture *pic = self.pictures[i];
             imageView.picture = pic;
+            imageView.tag = i;
+            UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+            [imageView addGestureRecognizer:tapGR];
+            
+            
         } else {
             imageView.hidden = YES;
         }
@@ -70,6 +86,30 @@
         CGFloat y = row * (PictureWH + PictureMargin);
         imageView.frame = CGRectMake(x, y, PictureWH, PictureWH);
     }
+}
+
+- (void)tap:(UITapGestureRecognizer *)recognizer {
+    UIImageView *view = (UIImageView *)recognizer.view;
+    
+    self.photos = [NSMutableArray array];
+    
+    int i = 0;
+    
+    for (Picture *pic in self.pictures) {
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.srcImageView = view;
+        photo.index = i;
+        NSString *urlString = [pic.thumbnail_pic stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
+        photo.url = [NSURL URLWithString:urlString];
+        [self.photos addObject:photo];
+        
+        i++;
+    }
+    
+    MJPhotoBrowser *photoBrower = [[MJPhotoBrowser alloc] init];
+    photoBrower.currentPhotoIndex = view.tag;
+    photoBrower.photos = self.photos;
+    [photoBrower show];
 }
 
 @end
